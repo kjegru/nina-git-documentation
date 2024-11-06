@@ -24,7 +24,7 @@ jobs:
 
       - name: Build MkDocs site
         run: mkdocs build
-t
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v5
         with:
