@@ -1,0 +1,7 @@
+site_name: "NINA's Git Documentation"
+theme:
+  name: readthedocs
+  features:
+    - navigation.sections
+    - navigation.tabs
+    - navigation.indexes
