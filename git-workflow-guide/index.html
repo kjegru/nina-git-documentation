@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Git Workflow Guide - NINA's Git Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Git Workflow Guide";
+        var mkdocs_page_input_path = "git-workflow-guide.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> NINA's Git Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Welcome to NINA's Git Documentation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Git Workflow Guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#branch-overview">Branch Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#branching-strategy">Branching Strategy</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-production-branch">1. production Branch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-main-branch">2. main Branch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-test-branch">3. test Branch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-feature-and-fix-branches">4. Feature and Fix Branches</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#workflow-steps">Workflow Steps</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-starting-new-work">1. Starting New Work</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-development-process">2. Development Process</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-creating-pull-requests">3. Creating Pull Requests</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-commands">Common Commands</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">NINA's Git Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Git Workflow Guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="git-workflow-guide">Git Workflow Guide</h1>
+<p>This document outlines the branching strategy and workflow used in this project to ensure stability, efficient development, and smooth deployment to production and testing environments.</p>
+<h2 id="branch-overview">Branch Overview</h2>
+<ol>
+<li><strong>production</strong>: Protected production branch that deploys directly to production servers. Only accepts PRs from <code>main</code>.</li>
+<li><strong>main</strong>: Protected source of truth, representing the latest stable and approved state of the project.</li>
+<li><strong>test</strong>: Protected integration testing branch that deploys to test servers.</li>
+<li><strong>dev</strong>: Development branches for individual features (<code>feat/</code>) or patches (<code>fix/</code>).</li>
+</ol>
+<h2 id="branching-strategy">Branching Strategy</h2>
+<h3 id="1-production-branch">1. <code>production</code> Branch</h3>
+<ul>
+<li><strong>Purpose</strong>: Production-ready code only</li>
+<li><strong>Protection</strong>: Requires PR and approvals from <code>main</code></li>
+<li><strong>Deploys</strong>: Automatically to production servers</li>
+<li><strong>Rules</strong>: No direct commits, PR only</li>
+</ul>
+<h3 id="2-main-branch">2. <code>main</code> Branch</h3>
+<ul>
+<li><strong>Purpose</strong>: Source of truth for stable code</li>
+<li><strong>Protection</strong>: Requires PR and approvals</li>
+<li><strong>Updates</strong>: Accepts PRs from <code>test</code> after successful testing</li>
+<li><strong>Rules</strong>: No direct commits, PR only</li>
+</ul>
+<h3 id="3-test-branch">3. <code>test</code> Branch</h3>
+<ul>
+<li><strong>Purpose</strong>: Integration testing environment</li>
+<li><strong>Protection</strong>: Requires PR from feature/fix branches</li>
+<li><strong>Deploys</strong>: Automatically to test servers</li>
+<li><strong>Rules</strong>: PR required, automated tests must pass</li>
+</ul>
+<h3 id="4-feature-and-fix-branches">4. Feature and Fix Branches</h3>
+<ul>
+<li><strong>Purpose</strong>: Individual development work</li>
+<li><strong>Naming</strong>: </li>
+<li>Features: <code>feat/feature-name</code></li>
+<li>Fixes: <code>fix/issue-name</code></li>
+<li><strong>Source</strong>: Always branch from <code>test</code></li>
+<li><strong>Merge</strong>: Back to <code>test</code> via PR</li>
+</ul>
+<h2 id="workflow-steps">Workflow Steps</h2>
+<h3 id="1-starting-new-work">1. Starting New Work</h3>
+<pre><code class="language-bash"># Update test branch
+git checkout test
+git pull origin test
+
+# Create new feature branch
+git checkout -b feat/feature-name
+# or for fixes
+git checkout -b fix/issue-name
+</code></pre>
+<h3 id="2-development-process">2. Development Process</h3>
+<pre><code class="language-bash"># Regular commits to your branch
+git add .
+git commit -m &quot;feat: descriptive message&quot;
+
+# Keep branch updated with test
+git checkout test
+git pull origin test
+git checkout feat/feature-name
+git rebase test
+</code></pre>
+<h3 id="3-creating-pull-requests">3. Creating Pull Requests</h3>
+<ol>
+<li><strong>Feature → Test</strong></li>
+<li>Create PR from your feature branch to <code>test</code></li>
+<li>Ensure all tests pass</li>
+<li>Get code review approval</li>
+<li>
+<p>Merge using rebase strategy</p>
+</li>
+<li>
+<p><strong>Test → Main</strong></p>
+</li>
+<li>After testing in test environment</li>
+<li>Create PR from <code>test</code> to <code>main</code></li>
+<li>Requires additional review</li>
+<li>
+<p>Merge using rebase strategy</p>
+</li>
+<li>
+<p><strong>Main → Production</strong></p>
+</li>
+<li>Create PR from <code>main</code> to <code>production</code></li>
+<li>Final review and approval</li>
+<li>Merge using rebase strategy</li>
+</ol>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li><strong>Commit Messages</strong></li>
+<li>
+<p>Use conventional commits format:</p>
+<ul>
+<li><code>feat: add new feature</code></li>
+<li><code>fix: resolve issue</code></li>
+<li><code>docs: update documentation</code></li>
+<li><code>refactor: improve code structure</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Branch Management</strong></p>
+</li>
+<li>Keep branches short-lived</li>
+<li>Delete branches after merging</li>
+<li>
+<p>Regularly rebase with <code>test</code></p>
+</li>
+<li>
+<p><strong>Code Review</strong></p>
+</li>
+<li>Required for all PRs</li>
+<li>
+<p>Check for:</p>
+<ul>
+<li>Code quality</li>
+<li>Test coverage</li>
+<li>Documentation updates</li>
+<li>Security considerations</li>
+</ul>
+</li>
+<li>
+<p><strong>Deployment Verification</strong></p>
+</li>
+<li>Verify deployments in test environment</li>
+<li>Run full test suite before production merge</li>
+<li>Monitor deployments for issues</li>
+</ol>
+<h2 id="common-commands">Common Commands</h2>
+<pre><code class="language-bash"># Create new feature branch
+git checkout -b feat/feature-name
+
+# Update branch with latest test changes
+git checkout test
+git pull origin test
+git checkout feat/feature-name
+git rebase test
+
+# Force push after rebase (if needed)
+git push origin feat/feature-name --force-with-lease
+
+# Delete local branch after merge
+git branch -d feat/feature-name
+
+# Delete remote branch
+git push origin --delete feat/feature-name
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Welcome to NINA's Git Documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
