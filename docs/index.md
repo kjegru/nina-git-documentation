@@ -5,4 +5,4 @@
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+        git-workflow-guide.md  # The git workflow guide.
