@@ -1,0 +1,15 @@
+## Key Terms Simplified
+- **Repository**: A project folder that Git watches
+- **Clone**: Copying a remote repository to your local machine. This is a download of the repository including Git tracking
+- **Stage**: Preparing changes for a commit, like gathering items in a cart before checkout
+- **Commit**: A snapshot of your changes (like saving a game)
+- **Push**: Uploading local commits to the remote repository, similar to publishing updates to a shared document
+- **Pull**: Downloading changes from the remote repository to your local one, like syncing an app to get the latest updates
+- **Master/Main Branch**: The default primary branch in most repositories, often representing the main or production-ready version of your project. May be protected from direct merges and require pull-requests for changes
+- **Merge Conflict**: When conflicting changes prevent a merge, just like when two people edit the same paragraph in a document. Often needs to be resolved manually
+- **HEAD**: The current commit your repository is on. Think of it as a bookmark marking where you left off
+- **Stash**: Temporarily shelving changes that you aren't ready to commit. These can be retrieved later
+- **Fork**: A copy of someone else's repository that you make in your GitHub account to work on independently, like creating your own version of a shared document
+- **Pull Request**: A request to merge changes from one branch or fork into another, often used to propose updates or improvements in collaborative projects
+- **Tag**: A marker for a specific point in the history of your repository, often used for releases / versions
+- **Tracked Files**: Files that Git is monitoring for changes. These can be unmodified, modified, or staged for commit. All files that have been previously committed or staged are tracked files. Untracked files are new files that Git doesn't yet monitor until you explicitly add them.
