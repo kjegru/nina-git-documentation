@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Introduction to Git - The Basics - NINA's Git Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Introduction to Git - The Basics";
+        var mkdocs_page_input_path = "intro-to-git.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> NINA's Git Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Welcome to NINA's Git Documentation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../git-basics-guide/">Git Basics: A Beginner's Guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../git-workflow-guide/">Git Workflow Guide</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Introduction to Git - The Basics</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-git">What is Git?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#local-vs-online-repositories">Local vs Online Repositories</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#local-repository-your-computer">Local Repository (Your Computer)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#online-repository-github-gitlab-etc">Online Repository (GitHub, GitLab, etc.)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-they-work-together">How They Work Together</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-workflow">Common Workflow</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../key-terms/">Key terms</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">NINA's Git Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Introduction to Git - The Basics</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="introduction-to-git-the-basics">Introduction to Git - The Basics</h1>
+<h2 id="what-is-git">What is Git?</h2>
+<p>Git is like a time machine for your code. It keeps track of all changes you make to your files, allowing you to:
+- Save different versions of your work
+- Collaborate with others
+- Go back in time if something breaks</p>
+<h2 id="local-vs-online-repositories">Local vs Online Repositories</h2>
+<p>Think of Git like this:</p>
+<h3 id="local-repository-your-computer">Local Repository (Your Computer)</h3>
+<ul>
+<li>Like working on documents saved on your computer</li>
+<li>Only you can see and work with these files</li>
+<li>Changes are saved locally</li>
+<li>You have full version history on your machine</li>
+</ul>
+<h3 id="online-repository-github-gitlab-etc">Online Repository (GitHub, GitLab, etc.)</h3>
+<ul>
+<li>Like OneDrive/Dropbox for your code</li>
+<li>Others can see and work with your files</li>
+<li>Acts as a backup of your work</li>
+<li>Enables collaboration with team members</li>
+</ul>
+<h2 id="how-they-work-together">How They Work Together</h2>
+<ol>
+<li>You work on files locally</li>
+<li>Save (commit) changes on your computer</li>
+<li>Send (push) these changes to the online repository</li>
+<li>Others can download (pull) your changes</li>
+<li>Repeat!</li>
+</ol>
+<h2 id="common-workflow">Common Workflow</h2>
+<ol>
+<li>Get the project (<code>git clone</code> or <code>git init</code>)</li>
+<li>Make changes to files</li>
+<li>Save changes (<code>git add</code> and <code>git commit</code>)</li>
+<li>Share changes online (<code>git push</code>)</li>
+<li>Get others' changes (<code>git pull</code>)</li>
+</ol>
+<p>Remember: Always pull before you push to avoid conflicts!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../git-workflow-guide/" class="btn btn-neutral float-left" title="Git Workflow Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../key-terms/" class="btn btn-neutral float-right" title="Key terms">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../git-workflow-guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../key-terms/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

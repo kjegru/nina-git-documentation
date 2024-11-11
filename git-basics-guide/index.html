@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Git Basics: A Beginner's Guide - NINA's Git Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Git Basics: A Beginner\u0027s Guide";
+        var mkdocs_page_input_path = "git-basics-guide.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> NINA's Git Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Welcome to NINA's Git Documentation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Git Basics: A Beginner's Guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#setting-up-git">Setting Up Git</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#first-time-setup">First-time Setup</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-git-commands">Basic Git Commands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-new-local-repository">Creating a New Local Repository</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-changes">Working with Changes</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#checking-status">Checking Status</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#adding-files">Adding Files</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#committing-changes">Committing Changes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#viewing-changes">Viewing Changes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-remote-repositories">Working with Remote Repositories</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#cloning-an-existing-remote-repository">Cloning an Existing Remote Repository</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#adding-a-remote-repository">Adding a Remote Repository</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pushing-changes">Pushing Changes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getting-updates">Getting Updates</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-workflows">Common Workflows</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#starting-a-new-project">Starting a New Project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-on-an-existing-project">Working on an Existing Project</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-issues-and-solutions">Common Issues and Solutions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#undoing-changes">Undoing Changes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixing-wrong-commit-message">Fixing Wrong Commit Message</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-merge-conflicts">Handling Merge Conflicts</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../git-workflow-guide/">Git Workflow Guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro-to-git/">Introduction to Git - The Basics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../key-terms/">Key terms</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">NINA's Git Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Git Basics: A Beginner's Guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="git-basics-a-beginners-guide">Git Basics: A Beginner's Guide</h1>
+<p>This guide will help you understand the basic Git commands you need to start version controlling your projects.</p>
+<h2 id="setting-up-git">Setting Up Git</h2>
+<h3 id="first-time-setup">First-time Setup</h3>
+<p>Before you start using Git, you should set up your identity:</p>
+<pre><code class="language-bash">git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;your.email@example.com&quot;
+</code></pre>
+<h2 id="basic-git-commands">Basic Git Commands</h2>
+<h3 id="creating-a-new-local-repository">Creating a New Local Repository</h3>
+<p>To start version controlling a project:</p>
+<pre><code class="language-bash"># Navigate to your project folder
+cd your-project-folder
+
+# Initialize Git repository
+git init
+</code></pre>
+<h3 id="working-with-changes">Working with Changes</h3>
+<h4 id="checking-status">Checking Status</h4>
+<p>Always start by checking what files have changed:</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<h4 id="adding-files">Adding Files</h4>
+<p>To prepare files for commit (staging):</p>
+<pre><code class="language-bash"># Add a specific file
+git add filename.txt
+
+# Add multiple files
+git add file1.txt file2.txt
+
+# Add all changed files in the current directory
+git add .
+
+# Add all files across entire project and show the files that are added
+git add -Av
+
+# Add all files with a specific extension
+git add *.txt
+</code></pre>
+<h4 id="committing-changes">Committing Changes</h4>
+<p>Save your staged changes:</p>
+<pre><code class="language-bash"># Basic commit
+git commit -m &quot;Your commit message&quot;
+
+# Add and commit in one command (only for tracked files)
+git commit -am &quot;Your commit message&quot;
+</code></pre>
+<h4 id="viewing-changes">Viewing Changes</h4>
+<p>See what you've changed:</p>
+<pre><code class="language-bash"># See unstaged changes
+git diff
+
+# See staged changes
+git diff --staged
+
+# See commit history
+git log
+</code></pre>
+<h3 id="working-with-remote-repositories">Working with Remote Repositories</h3>
+<p>There are two ways to get a connect to an existing remote repository:</p>
+<h4 id="cloning-an-existing-remote-repository">Cloning an Existing Remote Repository</h4>
+<p>This is done when the remote repostory has a lot of files.
+To get a copy of an existing Git repository:</p>
+<pre><code class="language-bash"># Clone a repository from GitHub/GitLab etc.
+git clone https://github.com/username/repository-name.git
+
+# Clone to a specific folder
+git clone https://github.com/username/repository-name.git my-folder
+</code></pre>
+<h4 id="adding-a-remote-repository">Adding a Remote Repository</h4>
+<p>Connecting a local repository to a remote empty repository:</p>
+<pre><code class="language-bash">git remote add origin https://github.com/username/repository-name.git
+</code></pre>
+<h4 id="pushing-changes">Pushing Changes</h4>
+<p>Send your commits to the remote repository:</p>
+<pre><code class="language-bash"># First time push from a new branch
+git push -u origin main
+
+# Subsequent pushes
+git push
+</code></pre>
+<h4 id="getting-updates">Getting Updates</h4>
+<p>Get and integrate changes from the remote repository:</p>
+<pre><code class="language-bash"># Fetch changes without merging
+git fetch
+
+# Fetch and merge changes
+git pull
+</code></pre>
+<h2 id="common-workflows">Common Workflows</h2>
+<h3 id="starting-a-new-project">Starting a New Project</h3>
+<pre><code class="language-bash"># Create a new directory
+mkdir my-project
+cd my-project
+
+# Initialize Git
+git init
+
+# Create some files
+touch README.md
+
+# Add and commit files
+git add .
+git commit -m &quot;Initial commit&quot;
+
+# Connect to remote (if using GitHub/GitLab)
+git remote add origin https://github.com/username/my-project.git
+git push -u origin main
+</code></pre>
+<h3 id="working-on-an-existing-project">Working on an Existing Project</h3>
+<pre><code class="language-bash"># Clone the repository
+git clone https://github.com/username/project.git
+
+# Make changes to files
+# ...
+
+# Check status
+git status
+
+# Add changes
+git add .
+
+# Commit changes
+git commit -m &quot;Description of changes&quot;
+
+# Push changes
+git push
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li><strong>Commit Messages</strong></li>
+<li>Use clear, descriptive commit messages</li>
+<li>Start with a verb (Add, Update, Fix, etc.)</li>
+<li>
+<p>Keep messages concise but informative</p>
+</li>
+<li>
+<p><strong>Frequent Commits</strong></p>
+</li>
+<li>Commit small, logical changes</li>
+<li>Don't wait until you have many changes</li>
+<li>
+<p>Each commit should represent one logical change</p>
+</li>
+<li>
+<p><strong>Pull Before Push</strong></p>
+</li>
+<li>Always pull before pushing to avoid conflicts</li>
+<li>
+<p>Handle any conflicts locally before pushing</p>
+</li>
+<li>
+<p><strong>Check Status Regularly</strong></p>
+</li>
+<li>Use <code>git status</code> frequently</li>
+<li>Verify what files are staged before committing</li>
+</ol>
+<h2 id="common-issues-and-solutions">Common Issues and Solutions</h2>
+<h3 id="undoing-changes">Undoing Changes</h3>
+<pre><code class="language-bash"># Undo unstaged changes to a file
+git checkout -- filename
+
+# Unstage a file (but keep changes)
+git reset HEAD filename
+
+# Undo last commit (keep changes staged)
+git reset --soft HEAD^
+
+# Undo last commit and all changes
+git reset --hard HEAD^
+</code></pre>
+<h3 id="fixing-wrong-commit-message">Fixing Wrong Commit Message</h3>
+<pre><code class="language-bash"># Fix last commit message
+git commit --amend -m &quot;New message&quot;
+</code></pre>
+<h3 id="handling-merge-conflicts">Handling Merge Conflicts</h3>
+<p>When you get a merge conflict:
+1. Open the conflicted files
+2. Look for the conflict markers (&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt;)
+3. Edit the files to resolve conflicts
+4. Add the resolved files
+5. Complete the merge with commit</p>
+<pre><code class="language-bash"># After resolving conflicts
+git add .
+git commit -m &quot;Resolve merge conflicts&quot;
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Welcome to NINA's Git Documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../git-workflow-guide/" class="btn btn-neutral float-right" title="Git Workflow Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../git-workflow-guide/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
