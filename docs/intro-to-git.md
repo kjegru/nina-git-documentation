@@ -35,5 +35,3 @@ Think of Git like this:
 4. [connect to online project](guides/git-basics-guide.md)
 5. Share changes online (`git push`)
 6. Get others' changes (`git pull`)
-
-Remember: Always pull before you push to avoid conflicts!

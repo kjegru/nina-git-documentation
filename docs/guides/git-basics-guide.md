@@ -105,6 +105,7 @@ git push
 ```
 
 #### Getting Updates
+Remember: Always pull before you push to avoid conflicts!
 Get and integrate changes from the remote repository:
 ```bash
 # Fetch changes without merging
