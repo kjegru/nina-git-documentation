@@ -4,6 +4,17 @@ This guide will help you understand the basic Git commands you need to start ver
 
 ## Setting Up Git
 
+There are many ways to work with Git, as there are numerous programs available:
+
+- **RStudio**: Integrated Git support for projects*.
+- **VS Code**: Built-in Git tools and extensions.
+- **Standalone Tools**: Many standalone Git clients are also available. E.g. Gitcraken
+
+* Integrated when using one of the share NINA-servers like https://rstudio.nina.no. If using the Windows laptop Git has be installed using Firmaportal and searching for "git 2".
+
+However, this guide uses Git in the terminal, as it is a universal approach that works across all environments. The subcommand in the Git commands will match what you see in your chosen program anyway.
+
+
 ### First-time Setup
 Before you start using Git, you should set up your identity:
 ```bash
