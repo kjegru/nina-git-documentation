@@ -9,6 +9,13 @@ This document outlines the branching strategy and workflow used in this project 
 3. **test**: Protected integration testing branch that deploys to test servers.
 4. **dev**: Development branches for individual features (`feat/`) or patches (`fix/`).
 
+While `production` and `main` may often contain similar code, they serve different purposes. The `main` branch is the latest stable code that has been tested, while the `production` branch is the code that is currently live. This separation allows for a more controlled deployment process, ensuring that only thoroughly reviewed and approved code reaches production.
+
+**Resetting the `test` branch from `main` after patches have been accepted or declined is a good practice in your workflow.** This approach ensures that the `test` branch remains a clean and accurate reflection of the current state of `main` plus any new patches that are actively under testing.
+
+> **Caution:** Force-pushing to a shared branch like `test` can affect other developers working on it. Ensure that all team members are aware of this practice and have committed or stashed their work before the reset.
+
+
 ## Branching Strategy
 
 ### 1. `production` Branch
@@ -130,3 +137,4 @@ git branch -d feat/feature-name
 # Delete remote branch
 git push origin --delete feat/feature-name
 ```
+
