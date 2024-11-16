@@ -4,21 +4,21 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Git Workflow Guide - NINA's Git Documentation</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
         var mkdocs_page_name = "Git Workflow Guide";
-        var mkdocs_page_input_path = "git-workflow-guide.md";
+        var mkdocs_page_input_path = "guides/git-workflow-guide.md";
         var mkdocs_page_url = null;
       </script>
     
     <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
+      <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -30,9 +30,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> NINA's Git Documentation
+          <a href="../.." class="icon icon-home"> NINA's Git Documentation
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -40,15 +40,22 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Welcome to NINA's Git Documentation</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Welcome to NINA's Git Documentation</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../git-basics-guide/">Git Basics: A Beginner's Guide</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../intro-to-git/">Introduction to Git - The Basics</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../key-terms/">Key terms</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Git Workflow Guide</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../git-basics-guide/">Git Basics: A Beginner's Guide</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Git Workflow Guide</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#branch-overview">Branch Overview</a>
     </li>
@@ -79,15 +86,7 @@
     <li class="toctree-l2"><a class="reference internal" href="#common-commands">Common Commands</a>
     </li>
     </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../intro-to-git/">Introduction to Git - The Basics</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../key-terms/">Key terms</a>
-                </li>
+                  </li>
               </ul>
       </div>
     </div>
@@ -96,13 +95,14 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">NINA's Git Documentation</a>
+          <a href="../..">NINA's Git Documentation</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Guides</li>
       <li class="breadcrumb-item active">Git Workflow Guide</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -121,6 +121,11 @@
 <li><strong>test</strong>: Protected integration testing branch that deploys to test servers.</li>
 <li><strong>dev</strong>: Development branches for individual features (<code>feat/</code>) or patches (<code>fix/</code>).</li>
 </ol>
+<p>While <code>production</code> and <code>main</code> may often contain similar code, they serve different purposes. The <code>main</code> branch is the latest stable code that has been tested, while the <code>production</code> branch is the code that is currently live. This separation allows for a more controlled deployment process, ensuring that only thoroughly reviewed and approved code reaches production.</p>
+<p><strong>Resetting the <code>test</code> branch from <code>main</code> after patches have been accepted or declined is a good practice in your workflow.</strong> This approach ensures that the <code>test</code> branch remains a clean and accurate reflection of the current state of <code>main</code> plus any new patches that are actively under testing.</p>
+<blockquote>
+<p><strong>Caution:</strong> Force-pushing to a shared branch like <code>test</code> can affect other developers working on it. Ensure that all team members are aware of this practice and have committed or stashed their work before the reset.</p>
+</blockquote>
 <h2 id="branching-strategy">Branching Strategy</h2>
 <h3 id="1-production-branch">1. <code>production</code> Branch</h3>
 <ul>
@@ -263,7 +268,6 @@ git push origin --delete feat/feature-name
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../git-basics-guide/" class="btn btn-neutral float-left" title="Git Basics: A Beginner's Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../intro-to-git/" class="btn btn-neutral float-right" title="Introduction to Git - The Basics">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -289,15 +293,13 @@ git push origin --delete feat/feature-name
       <span><a href="../git-basics-guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../intro-to-git/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
   </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
