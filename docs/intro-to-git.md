@@ -29,10 +29,11 @@ Think of Git like this:
 5. Repeat!
 
 ## Common Workflow
-1. Get the project (`git clone` or `git init`)
+1. Download online or create local project (`git clone` or `git init`)
 2. Make changes to files
 3. Save changes (`git add` and `git commit`)
-4. Share changes online (`git push`)
-5. Get others' changes (`git pull`)
+4. [connect to online project](guides/git-basics-guide.md)
+5. Share changes online (`git push`)
+6. Get others' changes (`git pull`)
 
 Remember: Always pull before you push to avoid conflicts!
